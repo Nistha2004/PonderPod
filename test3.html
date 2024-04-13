@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <header>
+        <h2>PonderPod 🕮</h2></header>
+        <a href="index3.html">Go back</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Notes</title>
+    <link rel="stylesheet" href="styles3.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 85%;
+            height: 700px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #8bc2f8;
+            color: #201919;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2f4153;
+        }
+    </style>
+     <link rel="stylesheet" href="styles4.css">
+     <!--timer -->
+
+     <div class="timer-container">
+      <div id="timer" class="timer"></div>
+      <h4>Timer</h4>
+      <div class="buttons">
+          <button id="start">Start</button>
+          <button id="pause">Pause</button>
+          <button id="reset">Reset</button>
+      </div>
+  </div>
+</head>
+<body>
+    <h1>Daily Notes</h1>
+    <p>Write your daily notes below:</p>
+    <textarea id="notes" placeholder="Write your notes here..."></textarea>
+    <button onclick="saveNotes()">Save Notes</button>
+
+    <script>
+        function saveNotes() {
+            var notes = document.getElementById('notes').value;
+            var today = new Date();
+            var dateString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var filename = dateString + '_notes.txt';
+            
+            // Create a Blob object to save the notes
+            var blob = new Blob([notes], { type: 'text/plain' });
+
+            // Create a link element to trigger the download
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+
+            // Append the link to the body and click it programmatically
+            document.body.appendChild(link);
+            link.click();
+
+            // Remove the link from the body
+            document.body.removeChild(link);
+        }
+    </script>
+    <script src="webpage3.js"></script>
+    <button class="theme-button" onclick="toggleTheme()">🔆</button>
+    
+
+    <script>
+        function toggleTheme() {
+            var body = document.body;
+            body.classList.toggle('dark-theme');
+            var button = document.querySelector('.theme-button');
+            if (body.classList.contains('dark-theme')) {
+                button.textContent = ' 🔆 ';
+            } else {
+                button.textContent = '🌙';        }
+        }
+    </script>
+</body>
+</html>

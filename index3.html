@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PonderPod</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+
+<header>
+    <h2>PonderPod 🕮</h2></header>
+<body>
+    <style>
+        body {
+            background-image: url('bgimage1.jpg'); /* Replace 'your_image_path.jpg' with the path to your image */
+            background-size: cover; /* This ensures the image covers the entire background */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            /* You can also specify other background properties like position, attachment, etc. */
+        }
+    </style>
+   <!--timer -->
+
+    <div class="timer-container">
+        <h4>Timer</h4>
+        <div id="timer" class="timer"></div>
+        <div class="buttons">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+  
+
+    <!-- White Noise Audio Player -->
+<audio id="whiteNoiseAudio" loop>
+    <source src="white-noise.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Toggle Button -->
+<h4>Music</h4><button id="toggleWhiteNoiseBtn"> ▶ </button>
+
+<script src="script3.js"></script>
+<br>
+<br>
+<a href="test3.html">Make Notes</a>
+
+<!--to-do list-->
+    <div class="todo-container">
+        <h2>To-Do List</h2>
+        <input type="text" id="todoInput" placeholder="Add new task...">
+        <button id="addTodoBtn">Add Task</button>
+        <ul id="todoList"></ul>
+    </div>
+  
+<!--calendar-->
+
+    <div class="calendar-container">
+        <div class="calendar-grid" id="calendarGrid"></div>.
+        
+        <div class="dropdown" id="dropdown"></div>
+    
+
+
+    <button id="monthYearBtn">March 2024</button>
+    </div>
+
+    <button class="theme-button" onclick="toggleTheme()">🔆</button>
+    
+
+<script>
+    function toggleTheme() {
+        var body = document.body;
+        body.classList.toggle('dark-theme');
+        var button = document.querySelector('.theme-button');
+        if (body.classList.contains('dark-theme')) {
+            button.textContent = ' 🔆 ';
+        } else {
+            button.textContent = '🌙';        }
+    }
+    
+</script>
+
+</body>
+</html>
